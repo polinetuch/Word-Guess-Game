@@ -7,27 +7,20 @@ var names = ["jon",
 "sansa",
 "samwell"]
 
-//computer picked== tyroyn
-// computer to select a random name from the array
-// assign the name to a variable
-// to get the length of the names
-// build a dash array based on the length
-// show the dashArray
-// user presses a key and it pushes to the string of the item from the name
-
 // Assign variables to each counter
 var guessesLeftNumber = 12;
 var correctGuessCount = 0;
 var winsNumber = 0;
 var lossesNumber = 0;
+
 // a string that stores guessed values, and is the same length as the computer choice
 var letterGuessedRight = [];
+
 // a version of letterGuessedRight to display on screen
 var formattedLetterGuessedRight = "";
 var lettersGuessedWrong = [];
 
 var computerChoice = names[Math.floor(Math.random() * names.length)];
-console.log(computerChoice);
 
 // Create variables that reference the HTML ids to display the text.
 var correctGuessText = document.getElementById("correctGuessText");
@@ -36,7 +29,7 @@ var guessesLeftText = document.getElementById("guessesLeftText");
 var winsText = document.getElementById("winsText");
 var lossesText = document.getElementById("lossesText");
 
-// to display the random computerChoice in blank _ _ _ _
+// to display the random computerChoice in blank
 function assignedLetterGuessedRightToBlank() {
     letterGuessedRight = [];
     
@@ -44,7 +37,7 @@ function assignedLetterGuessedRightToBlank() {
     
     // do a loop for the length of letter count in the str
     // during each loop, add a "_" to the value letterGuessedRight
-    // 1ST letterGuessedRight = "_"
+    // 1st letterGuessedRight = "_"
     // 2nd letterGuessedRight = "__"
     // 3rd letterGuessedRight = "___"
     for ( var i = 0; i < computerChoice.length; i++) {
@@ -109,6 +102,7 @@ document.onkeyup = function(event) {
 
     // after looping through each letter, check if the user made a correct guess
     if (userGuessedCorrectLetter === false) {
+        
         // add the user guess to the lettersGuessedWrong array
         lettersGuessedWrong.push(userGuess);
         guessesLeftNumber = guessesLeftNumber - 1;
@@ -129,37 +123,3 @@ document.onkeyup = function(event) {
 
     resetScreen();
 } 
-
-
-
-
-
-
-
-// This event occurs when a player presses a key
-// document.onkeyup = function(event) {
-//     var userGuess = event.key;
-//         if (userGuess === computerChoice) {
-//             wins++;
-            
-//             // alert("Congratulation! You were right!");
-//             var computerChoice = names[Math.floor(Math.random() * names.length)];
-//             console.log(computerChoice);
-//             answerArray.push(userGuess);
-//         }
-//         else if (userGuess !== computerChoice) {
-//             losses++;
-//             guessesLeft - 1;
-//             wrongGuess++;
-//             answerArray.push(userGuess);
-//             var computerChoice = names[Math.floor(Math.random() * names.length)];
-//             console.log(computerChoice);
-//         }
-//         if (guessesLeft === 0) {
-//             alert ("It's too late! Winter is already here! Try again!")
-//             var computerChoice = names[Math.floor(Math.random() * names.length)];
-//             console.log(computerChoice);
-//             guessesLeft = 12;
-//             wrongGuess = [];
-//         };    
-// }
